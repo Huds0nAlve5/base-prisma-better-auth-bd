@@ -19,12 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import {
-  usuarioLoginSchema,
-  usuarioLoginType,
-  usuarioSchema,
-  usuarioType,
-} from "@/schema/usuario";
+import { usuarioLoginSchema, usuarioLoginType } from "@/schema/usuario";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
@@ -34,7 +29,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import Image from "next/image";
 
 export default function page() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -74,7 +68,7 @@ export default function page() {
   const handleGoogleLogin = async () => {
     await authClient.signIn.social({
       provider: "google",
-      callbackURL: "/",
+      callbackURL: "/home",
     });
   };
 
@@ -114,7 +108,11 @@ export default function page() {
                     <FormItem>
                       <FormLabel>Senha</FormLabel>
                       <FormControl>
-                        <Input {...field} type="password"></Input>
+                        <Input
+                          {...field}
+                          type="password"
+                          autoComplete="off"
+                        ></Input>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

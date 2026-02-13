@@ -1,10 +1,12 @@
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  schemas  = ["public", "auth"]    // Define os schemas permitidos
+  schemas  = ["public", "auth"]
+  // Define os schemas permitidos
 }
 
 model User {
@@ -71,5 +73,16 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+  @@schema("auth")
+}
+
+model Jwks {
+  id         String    @id
+  publicKey  String
+  privateKey String
+  createdAt  DateTime
+  expiresAt  DateTime?
+
+  @@map("jwks")
   @@schema("auth")
 }

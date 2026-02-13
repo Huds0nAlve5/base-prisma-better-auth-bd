@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import { Toaster } from "sonner";
+import MenuBarPerson from "@/components/ui/menubar-person";
 
 export const metadata: Metadata = {
   title: "Login System",
@@ -12,12 +13,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className="w-full h-full">
-        <Toaster />
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

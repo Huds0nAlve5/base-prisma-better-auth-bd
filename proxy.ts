@@ -36,7 +36,7 @@ export default async function proxy(request: NextRequest) {
 
   // Se já tem sessão e tenta ir para login/registro de novo usuário (opcional)
   if (session && isAuthPage) {
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/home", request.url));
   }
 
   return NextResponse.next();

@@ -60,7 +60,7 @@ export default function page() {
       {
         onSuccess: (ctx) => {
           form.reset();
-          router.push("/"); //redirecionamento opcional
+          router.push("/home"); //redirecionamento opcional
         },
         onError: (ctx) => {
           toast.error(ctx.error.message, {
